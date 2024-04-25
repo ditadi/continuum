@@ -1,0 +1,54 @@
+{
+    "name": "feedback-sdk",
+    "type": "module",
+    "devDependencies": {
+        "@biomejs/biome": "^1.7.1",
+        "@commitlint/cli": "^19.3.0",
+        "@commitlint/config-conventional": "^19.2.2",
+        "@types/bun": "latest",
+        "@types/react": "^18.3.0",
+        "@types/react-dom": "^18.3.0",
+        "bumpp": "^9.4.0",
+        "bunchee": "^5.1.2",
+        "concurrently": "^8.2.2",
+        "react": "^18.3.0",
+        "react-dom": "^18.3.0"
+    },
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": ["dist"],
+    "exports": {
+        "import": {
+            "types": "./dist/index.d.mts",
+            "default": "./dist/index.mjs"
+        },
+        "require": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "build": "bunchee && bun run build-css",
+        "build-css": "NODE_ENV=production bunx tailwindcss -i ./src/globals.css -o ./dist/index.css --postcss --minify",
+        "dev": "concurrently \"bunchee --watch\" \"bun run dev-css\" \"bun run dev-website\"",
+        "dev-css": "bunx tailwindcss -i ./src/globals.css -o ./dist/index.css --postcss --watch",
+        "dev-website": "cd website && bun run dev",
+        "release": "bumpp --commit --tag --push && bun run build && npm publish --access public",
+        "commit": "git-cz",
+        "format": "bunx @biomejs/biome check --apply ."
+    },
+    "peerDependencies": {
+        "react": "^16.8 || ^17.0 || ^18.0",
+        "react-dom": "^16.8 || ^17.0 || ^18.0"
+    },
+    "dependencies": {
+        "@radix-ui/react-icons": "^1.3.0",
+        "@radix-ui/react-slot": "^1.0.2",
+        "autoprefixer": "^10.4.19",
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.1.1",
+        "tailwind-merge": "^2.3.0",
+        "tailwindcss-animate": "^1.0.7"
+    }
+}
