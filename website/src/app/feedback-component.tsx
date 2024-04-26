@@ -1,7 +1,7 @@
 "use client";
 
-import { Feedback } from "../../../dist";
-import "../../../dist/index.css";
+import { Feedback } from "@ditadi/feedback";
+import "@ditadi/feedback/index.css";
 
 export const FeedbackComponent = () => {
     return (

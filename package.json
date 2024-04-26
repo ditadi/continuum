@@ -20,13 +20,12 @@
     "style": "./dist/index.css",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
-    "files": [
-        "dist"
-    ],
+    "files": ["dist"],
     "exports": {
         ".": {
             "import": "./dist/index.mjs",
-            "require": "./dist/index.js"
+            "require": "./dist/index.js",
+            "types": "./dist/index.d.ts"
         },
         "./index.css": "./dist/index.css"
     },
