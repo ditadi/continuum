@@ -1,7 +1,7 @@
 "use client";
 
-import { Feedback, type FeedbackResponse } from "@ditadi/feedback";
-import "@ditadi/feedback/index.css";
+import { Feedback, type FeedbackResponse } from "@ditadi/continuum";
+import "@ditadi/continuum/index.css";
 
 export const FeedbackComponent = () => {
     return (
