@@ -1,6 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { FeedbackComponent } from "./feedback-component";
+
+export const metadata: Metadata = {
+    title: "Continuum",
+    description: "Feedback component for React.",
+    openGraph: {
+        title: "Continuum",
+        description: "Feedback component for React.",
+        url: "https://continuum.victorditadi.com",
+        siteName: "Victor Ditadi",
+        locale: "en-US",
+        type: "website",
+    },
+    twitter: {
+        title: "Ditadi",
+        card: "summary_large_image",
+    },
+};
 
 export default function Home() {
     return (
@@ -11,10 +30,12 @@ export default function Home() {
             </div>
             <div className="flex gap-4 justify-center mt-6">
                 <Button variant="outline">Feedback</Button>
-                <Button variant="ghost" className="rounded-full">
-                    Github
-                    <ArrowRightIcon className="w-4 h-4 ml-1" />
-                </Button>
+                <Link href="https://github.com/ditadi/continuum" target="_blank">
+                    <Button variant="ghost" className="rounded-full">
+                        Github
+                        <ArrowRightIcon className="w-4 h-4 ml-1" />
+                    </Button>
+                </Link>
             </div>
 
             <div className="flex gap-4 justify-center mt-6">
