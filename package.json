@@ -1,5 +1,6 @@
 {
     "name": "feedback",
+    "version": "0.1.0-beta.1",
     "type": "module",
     "devDependencies": {
         "@biomejs/biome": "^1.7.1",
@@ -18,7 +19,9 @@
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
-    "files": ["dist"],
+    "files": [
+        "dist"
+    ],
     "exports": {
         "import": {
             "types": "./dist/index.d.mts",
