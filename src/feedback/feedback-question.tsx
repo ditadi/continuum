@@ -42,11 +42,13 @@ export const FeedbackQuestion = (props: FeedbackQuestionProps) => {
     const renderErrorMessage = () => {
         if (isFeedbackMoodMissing || isFeedbackTextMissing) {
             return (
-                <span className="text-sm text-red-500">
-                    {isFeedbackTextMissing
-                        ? props.labelFeedbackTextMissing
-                        : props.labelFeedbackMoodMissing}
-                </span>
+                <div className="flex justify-start">
+                    <span className="text-sm text-destructive font-medium">
+                        {isFeedbackTextMissing
+                            ? props.labelFeedbackTextMissing
+                            : props.labelFeedbackMoodMissing}
+                    </span>
+                </div>
             );
         }
     };
