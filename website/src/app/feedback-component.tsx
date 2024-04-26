@@ -1,19 +1,19 @@
 "use client";
 
-import { Feedback } from "@ditadi/feedback";
+import { Feedback, type FeedbackResponse } from "@ditadi/feedback";
 import "@ditadi/feedback/index.css";
 
 export const FeedbackComponent = () => {
     return (
         <Feedback
             renderType="open"
-            labelPlaceholder="Your feedback..."
-            labelSendFeedback="Send"
+            labelFeedbackPlaceholder="Your feedback..."
+            labelFeedbackAction="Send"
             labelFeedbackMoodMissing="Please select a mood."
             labelFeedbackTextMissing="Please enter feedback."
             labelFinishTitle="Your feedback has been received."
             labelFinishSubtitle="Thank you for your help."
-            onFeedbackSent={(e) => console.log(e)}
+            onFeedbackSent={(e: FeedbackResponse) => console.log(e)}
         />
     );
 };
