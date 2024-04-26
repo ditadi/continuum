@@ -1,10 +1,9 @@
-import { TestComponent } from "../../../dist";
-import "../../../dist/index.css";
+import { FeedbackComponent } from "./feedback-component";
 
 export default function Home() {
     return (
         <div>
-            <TestComponent />
+            <FeedbackComponent/>
         </div>
     );
 }
