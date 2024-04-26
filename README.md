@@ -1,4 +1,4 @@
-# feedback-sdk
+# feedback
 
 To install dependencies:
 
