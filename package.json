@@ -1,5 +1,5 @@
 {
-    "name": "@ditadi/feedback",
+    "name": "@ditadi/continuum",
     "version": "0.1.0",
     "type": "module",
     "devDependencies": {
@@ -20,9 +20,7 @@
     "style": "./dist/index.css",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
-    "files": [
-        "dist"
-    ],
+    "files": ["dist"],
     "exports": {
         ".": {
             "import": "./dist/index.mjs",
@@ -63,6 +61,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/ditadi/feedback"
+        "url": "https://github.com/ditadi/continuum"
     }
 }

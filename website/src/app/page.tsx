@@ -6,7 +6,7 @@ export default function Home() {
     return (
         <div className="max-w-2xl mx-auto text-center pt-64">
             <div className="flex flex-col relative">
-                <span className="text-7xl font-semibold mb-4 relative">Feedback</span>
+                <span className="text-7xl font-semibold mb-4 relative">Continuum</span>
                 <p className="text-gray-600 text-xl">Feedback component for React.</p>
             </div>
             <div className="flex gap-4 justify-center mt-6">

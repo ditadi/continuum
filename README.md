@@ -1,4 +1,4 @@
-Feedback is a simple React component that has the goal to be added on your website to continuous feedback collection.
+Continuum is a feedback component that allows your users to provide continuous feedback.
 You can use as open ui or as popover, triggered by a button.
 
 ## Usage
@@ -6,8 +6,8 @@ You can use as open ui or as popover, triggered by a button.
 To start using the library, install it in your project:,
 
 ```bash
-npm install @ditadi/feedback
-bun install @ditadi/feedback
+npm install @ditadi/continuum
+bun install @ditadi/continuum
 ```
 
 Use the feedback in your app.
@@ -15,8 +15,8 @@ Use the feedback in your app.
 ```jsx
 "use client";
 
-import { Feedback } from "@ditadi/feedback";
-import "@ditadi/feedback/index.css";
+import { Feedback } from "@ditadi/continuum";
+import "@ditadi/continuum/index.css";
 
 export const FeedbackComponent = () => {
     return (
