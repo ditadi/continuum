@@ -1,5 +1,5 @@
 {
-    "name": "feedback",
+    "name": "@ditadi/feedback",
     "version": "0.1.0-beta.1",
     "type": "module",
     "devDependencies": {
@@ -17,11 +17,10 @@
         "react-dom": "^18.3.0"
     },
     "main": "./dist/index.js",
+    "style": "./dist/index.css",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
-    "files": [
-        "dist"
-    ],
+    "files": ["dist"],
     "exports": {
         "import": {
             "types": "./dist/index.d.mts",
@@ -57,5 +56,13 @@
         "framer-motion": "^11.1.7",
         "tailwind-merge": "^2.3.0",
         "tailwindcss-animate": "^1.0.7"
+    },
+    "author": {
+        "name": "ditadi",
+        "url": "https://github.com/ditadi"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ditadi/feedback"
     }
 }
