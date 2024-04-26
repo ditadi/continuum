@@ -3,13 +3,13 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2 } from "lucide-react";
 import React from "react";
+import type { FeedbackResponse } from "..";
 import { FeedbackMood } from "./feedback-mood";
-import type { FeedbackResponse } from "./interface";
 
 type FeedbackQuestionProps = {
     labelTitle?: string;
-    labelPlaceholder?: string;
-    labelSendFeedback?: string;
+    labelFeedbackPlaceholder?: string;
+    labelFeedbackAction?: string;
     labelFeedbackTextMissing?: string;
     labelFeedbackMoodMissing?: string;
     isFeedbackLoading?: boolean;
@@ -58,7 +58,7 @@ export const FeedbackQuestion = (props: FeedbackQuestionProps) => {
             <div className="flex flex-col gap-2 p-4">
                 <Label>{props.labelTitle}</Label>
                 <Textarea
-                    placeholder={props.labelPlaceholder}
+                    placeholder={props.labelFeedbackPlaceholder}
                     disabled={props.isFeedbackLoading}
                     className="hover:border"
                     value={feedbackText}
@@ -82,7 +82,7 @@ export const FeedbackQuestion = (props: FeedbackQuestionProps) => {
                     }}
                 >
                     {props.isFeedbackLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    {props.labelSendFeedback}
+                    {props.labelFeedbackAction}
                 </Button>
             </div>
         </>

@@ -30,9 +30,9 @@ export const Feedback = (props: FeedbackProps) => {
         }
         return (
             <FeedbackQuestion
-                labelPlaceholder={props.labelPlaceholder}
+                labelFeedbackPlaceholder={props.labelFeedbackPlaceholder}
                 labelTitle={props.labelTitle}
-                labelSendFeedback={props.labelSendFeedback}
+                labelFeedbackAction={props.labelFeedbackAction}
                 labelFeedbackTextMissing={props.labelFeedbackTextMissing}
                 labelFeedbackMoodMissing={props.labelFeedbackMoodMissing}
                 isFeedbackLoading={isFeedbackLoading}
