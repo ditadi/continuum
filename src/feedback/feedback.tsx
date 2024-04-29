@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { FeedbackFinish } from "./feedback-finish";
 import { FeedbackOpen } from "./feedback-open";
+import { FeedbackPopover } from "./feedback-popover";
 import { FeedbackQuestion } from "./feedback-question";
 import { type FeedbackProps, type FeedbackResponse, FeedbackStep } from "./interface";
 
 export const Feedback = (props: FeedbackProps) => {
+    const [isPopoverOpen, setIsPopoverOpen] = useState(false);
     const [feedbackStep, setFeedbackStep] = useState<FeedbackStep>(FeedbackStep.QUESTION);
     const [isFeedbackLoading, setIsFeedbackLoading] = useState(false);
 
@@ -14,9 +16,11 @@ export const Feedback = (props: FeedbackProps) => {
         props.onFeedbackSent(feedbackResponse);
 
         setTimeout(() => {
+            if (props.renderType === "popover") setIsPopoverOpen(false);
+
             setIsFeedbackLoading(false);
             setFeedbackStep(FeedbackStep.QUESTION);
-        }, 2000);
+        }, 3000);
     };
 
     const FeedbackContent = () => {
@@ -42,7 +46,16 @@ export const Feedback = (props: FeedbackProps) => {
     };
 
     const RenderFeedback = {
-        popover: <div>popover</div>,
+        popover: (
+            <FeedbackPopover
+                isPopoverOpen={isPopoverOpen}
+                setIsPopoverOpen={setIsPopoverOpen}
+                labelFeedbackButton={props.labelFeedbackButton}
+                onFeedbackOpen={props.onFeedbackOpen}
+            >
+                <FeedbackContent />
+            </FeedbackPopover>
+        ),
         open: (
             <FeedbackOpen>
                 <FeedbackContent />
