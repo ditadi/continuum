@@ -8,6 +8,7 @@ export interface FeedbackProps {
     labelFeedbackMoodMissing?: string;
     labelFinishTitle?: string;
     labelFinishSubtitle?: string;
+    actionButtonColor?: string;
     onFeedbackSent?: (feedbackResponse: FeedbackResponse) => void;
     onFeedbackOpen?: () => void;
 }

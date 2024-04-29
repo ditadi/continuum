@@ -12,6 +12,7 @@ type FeedbackQuestionProps = {
     labelFeedbackAction?: string;
     labelFeedbackTextMissing?: string;
     labelFeedbackMoodMissing?: string;
+    actionButtonColor?: string;
     isFeedbackLoading?: boolean;
     onFeedbackSent: (feedbackResponse: FeedbackResponse) => void;
 };
@@ -55,8 +56,8 @@ export const FeedbackQuestion = (props: FeedbackQuestionProps) => {
 
     return (
         <>
-            <div className="flex flex-col gap-2 p-4">
-                <Label>{props.labelTitle}</Label>
+            <div className="flex flex-col gap-3 p-4">
+                <Label className="text-left">{props.labelTitle}</Label>
                 <Textarea
                     placeholder={props.labelFeedbackPlaceholder}
                     disabled={props.isFeedbackLoading}
@@ -76,6 +77,7 @@ export const FeedbackQuestion = (props: FeedbackQuestionProps) => {
                 <Button
                     size="sm"
                     disabled={props.isFeedbackLoading}
+                    style={{ backgroundColor: props.actionButtonColor }}
                     onClick={() => {
                         const isValid = validateForm();
                         if (isValid) props.onFeedbackSent({ feedbackText, feedbackMood });

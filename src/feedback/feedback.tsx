@@ -40,7 +40,9 @@ export const Feedback = (props: FeedbackProps) => {
                 labelFeedbackTextMissing={props.labelFeedbackTextMissing}
                 labelFeedbackMoodMissing={props.labelFeedbackMoodMissing}
                 isFeedbackLoading={isFeedbackLoading}
+                actionButtonColor={props.actionButtonColor}
                 onFeedbackSent={(e) => handlerOnFeedbackSent(e)}
+
             />
         );
     };

@@ -1,12 +1,17 @@
 "use client";
 
 import { Feedback, type FeedbackResponse } from "@ditadi/continuum";
-import "@ditadi/continuum/index.css";
+import "@ditadi/continuum";
 
 export const FeedbackComponent = (props: { renderType: "popover" | "open" }) => {
     return (
         <Feedback
             renderType={props.renderType}
+            labelTitle={
+                props.renderType === "open"
+                    ? "Share your feedback about this component."
+                    : undefined
+            }
             labelFeedbackButton="Feedback"
             labelFeedbackPlaceholder="Your feedback..."
             labelFeedbackAction="Send"
