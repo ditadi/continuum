@@ -1,7 +1,7 @@
 "use client";
 
 import { Feedback, type FeedbackResponse } from "@ditadi/continuum";
-import "@ditadi/continuum";
+import "@ditadi/continuum/index.css";
 
 export const FeedbackComponent = (props: { renderType: "popover" | "open" }) => {
     return (
