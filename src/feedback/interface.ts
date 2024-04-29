@@ -1,13 +1,15 @@
 export interface FeedbackProps {
     renderType: "open" | "popover";
     labelTitle?: string;
+    labelFeedbackButton?: string;
     labelFeedbackPlaceholder?: string;
     labelFeedbackAction?: string;
     labelFeedbackTextMissing?: string;
     labelFeedbackMoodMissing?: string;
     labelFinishTitle?: string;
     labelFinishSubtitle?: string;
-    onFeedbackSent: (feedbackResponse: FeedbackResponse) => void;
+    onFeedbackSent?: (feedbackResponse: FeedbackResponse) => void;
+    onFeedbackOpen?: () => void;
 }
 
 export enum FeedbackStep {
