@@ -22,6 +22,8 @@ export const FeedbackComponent = () => {
     return (
         <Feedback
             renderType="open"
+            labelTitle="Share your feedback about this component."
+            labelFeedbackButton="Feedback"
             labelFeedbackPlaceholder="Your feedback..."
             labelFeedbackAction="Send"
             labelFeedbackMoodMissing="Please select a mood."
@@ -29,6 +31,7 @@ export const FeedbackComponent = () => {
             labelFinishTitle="Your feedback has been received."
             labelFinishSubtitle="Thank you for your help."
             onFeedbackSent={(e) => console.log(e)}
+            onFeedbackOpen={() => console.log("Feedback open.")}
         />
     );
 };
@@ -46,6 +49,8 @@ Props:
 
 `labelTitle`: String added as small title above the text area. Optional.
 
+`labelFeedbackButton`: String added on send button. Optional.
+
 `labelFeedbackPlaceholder`: String added on text area placeholder. Optional.
 
 `labelFeedbackAction`: String added on button to send feedback. Optional. 
@@ -58,7 +63,9 @@ Props:
 
 `labelFinishSubtitle`: String added to increase your message when the feedback was sent. Optional.
 
-`onFeedbackSent`: Callback returning the response of the feedback.
+`onFeedbackSent`: Callback returning the response of the feedback. Optional
+
+`onFeedbackOpen`: Callback called when the feedback is open from popover. Optional
 
 ```jsx
 interface FeedbackResponse {
