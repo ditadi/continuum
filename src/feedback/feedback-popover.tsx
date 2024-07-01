@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useEffect } from "react";
+import { Popover, PopoverContent, PopoverTrigger } from "../components//ui/popover";
 
 interface FeedbackPopoverProps {
     children: React.ReactNode;
@@ -12,7 +12,7 @@ interface FeedbackPopoverProps {
 
 export const FeedbackPopover = (props: FeedbackPopoverProps) => {
     useEffect(() => {
-        if (props.isPopoverOpen) props.onFeedbackOpen();
+        if (props.isPopoverOpen && props.onFeedbackOpen) props.onFeedbackOpen();
     }, [props.isPopoverOpen, props.onFeedbackOpen]);
 
     return (

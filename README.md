@@ -21,7 +21,7 @@ import "@ditadi/continuum/index.css";
 export const FeedbackComponent = () => {
     return (
         <Feedback
-            renderType="open"
+            variant="open"
             labelTitle="Share your feedback about this component."
             labelFeedbackButton="Feedback"
             labelFeedbackPlaceholder="Your feedback..."
@@ -45,7 +45,9 @@ Contains all the possible texts you want to customize, ui style and callbacks wh
 
 Props:
 
-`renderType`: UI Style of the Feedback. Can be `open` or `popover`. Required.
+`variant`: UI Style of the Feedback. Can be `open`, `popover` or `fixed`. Required.
+
+`position`: Position when the variant is fixed. Can be `top-right`, `top-left`, `bottom-right`  or `bottom-left`. Optional.
 
 `labelTitle`: String added as small title above the text area. Optional.
 

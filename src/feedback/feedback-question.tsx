@@ -1,12 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Loader2 } from "lucide-react";
+import { ArrowDown, Loader2 } from "lucide-react";
 import React from "react";
 import type { FeedbackResponse } from "..";
+import { Button } from "../components/ui/button";
+import { Label } from "../components/ui/label";
+import { Textarea } from "../components/ui/textarea";
 import { FeedbackMood } from "./feedback-mood";
 
 type FeedbackQuestionProps = {
+    variant: "open" | "popover" | "fixed";
     labelTitle?: string;
     labelFeedbackPlaceholder?: string;
     labelFeedbackAction?: string;
@@ -15,11 +16,12 @@ type FeedbackQuestionProps = {
     actionButtonColor?: string;
     isFeedbackLoading?: boolean;
     onFeedbackSent: (feedbackResponse: FeedbackResponse) => void;
+    onDismissClick?: () => void;
 };
 
 export const FeedbackQuestion = (props: FeedbackQuestionProps) => {
     const [feedbackText, setFeedbackText] = React.useState("");
-    const [feedbackMood, setFeedbackMood] = React.useState<number | null>(null);
+    const [feedbackMood, setFeedbackMood] = React.useState<number>();
     const [isFeedbackTextMissing, setIsFeedbackTextMissing] = React.useState(false);
     const [isFeedbackMoodMissing, setIsFeedbackMoodMissing] = React.useState(false);
 
@@ -57,7 +59,15 @@ export const FeedbackQuestion = (props: FeedbackQuestionProps) => {
     return (
         <>
             <div className="flex flex-col gap-3 p-4">
-                <Label className="text-left">{props.labelTitle}</Label>
+                <div className="flex justify-between items-center">
+                    <Label className="text-left">{props.labelTitle}</Label>
+                    {props.variant === "fixed" && (
+                        <ArrowDown
+                            className="w-3 h-3 cursor-pointer"
+                            onClick={props.onDismissClick}
+                        />
+                    )}
+                </div>
                 <Textarea
                     placeholder={props.labelFeedbackPlaceholder}
                     disabled={props.isFeedbackLoading}
@@ -80,7 +90,8 @@ export const FeedbackQuestion = (props: FeedbackQuestionProps) => {
                     style={{ backgroundColor: props.actionButtonColor }}
                     onClick={() => {
                         const isValid = validateForm();
-                        if (isValid) props.onFeedbackSent({ feedbackText, feedbackMood });
+                        if (isValid && feedbackMood)
+                            props.onFeedbackSent({ feedbackText, feedbackMood });
                     }}
                 >
                     {props.isFeedbackLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}

@@ -1,5 +1,5 @@
-import { Toggle } from "@/components/ui/toggle";
 import { Angry, FrownIcon, LaughIcon, MehIcon, SmileIcon } from "lucide-react";
+import { Toggle } from "../components/ui/toggle";
 
 type FeedbackMoodProps = {
     mood: number | undefined;
