@@ -15,7 +15,7 @@ export const Feedback = (props: FeedbackProps) => {
     const handlerOnFeedbackSent = (feedbackResponse: FeedbackResponse) => {
         setIsFeedbackLoading(true);
         setFeedbackStep(FeedbackStep.FINISH);
-        props.onFeedbackSent(feedbackResponse);
+        if (props.onFeedbackSent) props.onFeedbackSent(feedbackResponse);
 
         setTimeout(() => {
             if (props.variant === "popover") setIsPopoverOpen(false);

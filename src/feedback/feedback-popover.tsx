@@ -12,7 +12,7 @@ interface FeedbackPopoverProps {
 
 export const FeedbackPopover = (props: FeedbackPopoverProps) => {
     useEffect(() => {
-        if (props.isPopoverOpen) props.onFeedbackOpen();
+        if (props.isPopoverOpen && props.onFeedbackOpen) props.onFeedbackOpen();
     }, [props.isPopoverOpen, props.onFeedbackOpen]);
 
     return (

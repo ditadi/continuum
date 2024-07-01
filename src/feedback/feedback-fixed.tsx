@@ -12,7 +12,7 @@ const positionClasses = {
 export const FeedbackFixed = memo(
     ({
         children,
-        position,
+        position = "bottom-right",
         isExpanded,
         setIsExpanded,
         title,
@@ -21,7 +21,7 @@ export const FeedbackFixed = memo(
         position?: "top-right" | "top-left" | "bottom-right" | "bottom-left";
         isExpanded: boolean;
         setIsExpanded: (value: boolean) => void;
-        title: string;
+        title?: string;
     }) => {
         return (
             <div className={`fixed ${positionClasses[position]}`}>

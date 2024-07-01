@@ -21,7 +21,7 @@ type FeedbackQuestionProps = {
 
 export const FeedbackQuestion = (props: FeedbackQuestionProps) => {
     const [feedbackText, setFeedbackText] = React.useState("");
-    const [feedbackMood, setFeedbackMood] = React.useState<number | null>(null);
+    const [feedbackMood, setFeedbackMood] = React.useState<number>();
     const [isFeedbackTextMissing, setIsFeedbackTextMissing] = React.useState(false);
     const [isFeedbackMoodMissing, setIsFeedbackMoodMissing] = React.useState(false);
 
@@ -90,7 +90,8 @@ export const FeedbackQuestion = (props: FeedbackQuestionProps) => {
                     style={{ backgroundColor: props.actionButtonColor }}
                     onClick={() => {
                         const isValid = validateForm();
-                        if (isValid) props.onFeedbackSent({ feedbackText, feedbackMood });
+                        if (isValid && feedbackMood)
+                            props.onFeedbackSent({ feedbackText, feedbackMood });
                     }}
                 >
                     {props.isFeedbackLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
