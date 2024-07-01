@@ -29,7 +29,7 @@ export default function Home() {
                 <p className="text-gray-600 text-xl">Feedback component for React.</p>
             </div>
             <div className="flex gap-4 justify-center mt-6">
-                <FeedbackComponent renderType="popover" />
+                <FeedbackComponent variant="popover" title="Share your feedback." />
                 <Link href="https://github.com/ditadi/continuum" target="_blank">
                     <Button variant="ghost" className="rounded-full">
                         Github
@@ -39,8 +39,14 @@ export default function Home() {
             </div>
 
             <div className="flex gap-4 justify-center mt-6">
-                <FeedbackComponent renderType="open" />
+                <FeedbackComponent variant="open" title="Share your feedback." />
             </div>
+
+            <FeedbackComponent
+                variant="fixed"
+                title="Share your feedback."
+                position="bottom-right"
+            />
         </div>
     );
 }

@@ -3,15 +3,16 @@
 import { Feedback, type FeedbackResponse } from "@ditadi/continuum";
 import "@ditadi/continuum/index.css";
 
-export const FeedbackComponent = (props: { renderType: "popover" | "open" }) => {
+export const FeedbackComponent = (props: {
+    variant: "popover" | "open" | "fixed";
+    position?: "top-right" | "top-left" | "bottom-right" | "bottom-left";
+    title?: string;
+}) => {
     return (
         <Feedback
-            renderType={props.renderType}
-            labelTitle={
-                props.renderType === "open"
-                    ? "Share your feedback about this component."
-                    : undefined
-            }
+            variant={props.variant}
+            position={props.position}
+            labelTitle={props.title}
             labelFeedbackButton="Feedback"
             labelFeedbackPlaceholder="Your feedback..."
             labelFeedbackAction="Send"
