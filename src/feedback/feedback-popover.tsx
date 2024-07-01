@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useEffect } from "react";
+import { Popover, PopoverContent, PopoverTrigger } from "../components//ui/popover";
 
 interface FeedbackPopoverProps {
     children: React.ReactNode;

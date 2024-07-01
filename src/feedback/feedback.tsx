@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { FeedbackFinish } from "./feedback-finish";
+import { FeedbackFixed } from "./feedback-fixed";
 import { FeedbackOpen } from "./feedback-open";
 import { FeedbackPopover } from "./feedback-popover";
 import { FeedbackQuestion } from "./feedback-question";
 import { type FeedbackProps, type FeedbackResponse, FeedbackStep } from "./interface";
 
 export const Feedback = (props: FeedbackProps) => {
+    const [isExpanded, setIsExpanded] = useState(false);
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
     const [feedbackStep, setFeedbackStep] = useState<FeedbackStep>(FeedbackStep.QUESTION);
     const [isFeedbackLoading, setIsFeedbackLoading] = useState(false);
@@ -16,11 +18,16 @@ export const Feedback = (props: FeedbackProps) => {
         props.onFeedbackSent(feedbackResponse);
 
         setTimeout(() => {
-            if (props.renderType === "popover") setIsPopoverOpen(false);
+            if (props.variant === "popover") setIsPopoverOpen(false);
+            if (props.variant === "fixed") setIsExpanded(false);
 
             setIsFeedbackLoading(false);
             setFeedbackStep(FeedbackStep.QUESTION);
         }, 3000);
+    };
+
+    const handlerOnDismiss = () => {
+        setIsExpanded(false);
     };
 
     const FeedbackContent = () => {
@@ -34,6 +41,7 @@ export const Feedback = (props: FeedbackProps) => {
         }
         return (
             <FeedbackQuestion
+                variant={props.variant}
                 labelFeedbackPlaceholder={props.labelFeedbackPlaceholder}
                 labelTitle={props.labelTitle}
                 labelFeedbackAction={props.labelFeedbackAction}
@@ -42,7 +50,7 @@ export const Feedback = (props: FeedbackProps) => {
                 isFeedbackLoading={isFeedbackLoading}
                 actionButtonColor={props.actionButtonColor}
                 onFeedbackSent={(e) => handlerOnFeedbackSent(e)}
-
+                onDismissClick={handlerOnDismiss}
             />
         );
     };
@@ -63,7 +71,17 @@ export const Feedback = (props: FeedbackProps) => {
                 <FeedbackContent />
             </FeedbackOpen>
         ),
+        fixed: (
+            <FeedbackFixed
+                position={props.position}
+                isExpanded={isExpanded}
+                setIsExpanded={setIsExpanded}
+                title={props.labelTitle}
+            >
+                <FeedbackContent />
+            </FeedbackFixed>
+        ),
     };
 
-    return <>{RenderFeedback[props.renderType]}</>;
+    return <>{RenderFeedback[props.variant]}</>;
 };

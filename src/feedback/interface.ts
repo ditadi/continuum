@@ -1,5 +1,6 @@
 export interface FeedbackProps {
-    renderType: "open" | "popover";
+    variant: "open" | "popover" | "fixed";
+    position?: "top-right" | "top-left" | "bottom-right" | "bottom-left";
     labelTitle?: string;
     labelFeedbackButton?: string;
     labelFeedbackPlaceholder?: string;

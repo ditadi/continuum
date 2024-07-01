@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { CircleCheckBig } from "lucide-react";
 
-const MotionContainer = {
+const motionContainerVariants = {
     hidden: { opacity: 1, scale: 0 },
     visible: {
         opacity: 1,
@@ -12,7 +12,7 @@ const MotionContainer = {
         },
     },
 };
-const MotionItem = {
+const motionItemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
         y: 0,
@@ -25,19 +25,22 @@ interface FeedbackFinishProps {
     labelFinishSubtitle?: string;
 }
 
-export const FeedbackFinish = (props: FeedbackFinishProps) => {
+export const FeedbackFinish = ({ labelFinishTitle, labelFinishSubtitle }: FeedbackFinishProps) => {
     return (
         <motion.div
             className="flex flex-col gap-4 pt-10 pb-10 justify-center items-center"
-            variants={MotionContainer}
+            variants={motionContainerVariants}
             initial="hidden"
             animate="visible"
         >
             <CircleCheckBig className="text-green-500 w-10 h-10" />
-            <motion.p className="text-sm text-muted-foreground text-center" variants={MotionItem}>
-                {props.labelFinishTitle}
+            <motion.p
+                className="text-sm text-muted-foreground text-center"
+                variants={motionItemVariants}
+            >
+                {labelFinishTitle}
                 <br />
-                {props.labelFinishSubtitle}
+                {labelFinishSubtitle}
             </motion.p>
         </motion.div>
     );
