@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import type { ReactNode } from "react";
 import { memo } from "react";
+import React from "react";
 
 const positionClasses = {
     "top-right": "top-4 right-4",

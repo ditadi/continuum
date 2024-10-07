@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CircleCheckBig } from "lucide-react";
+import React from "react";
 
 const motionContainerVariants = {
     hidden: { opacity: 1, scale: 0 },
